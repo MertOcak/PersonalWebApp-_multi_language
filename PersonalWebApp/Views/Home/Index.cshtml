@@ -3,10 +3,8 @@
     ViewData["Title"] = "My Works";
 }
 
-<div id="colorlib-main">
-
-
-    @*<section id="colorlib-hero" class="js-fullheight" data-section="home">
+    <div id="colorlib-main">
+        @*<section id="colorlib-hero" class="js-fullheight" data-section="home">
             <div class="flexslider js-fullheight">
                 <ul class="slides">
                     <li style="background-image: url(/frontend/frontend/images/img_bg_1.jpg);">
@@ -45,48 +43,48 @@
             </div>
         </section> *@
 
-    <section class="colorlib-about" data-section="about">
-        <div class="colorlib-narrow-content">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
-                        <div class="col-md-12">
-                            <div class="about-desc">
-                                <span class="heading-meta">About Me</span>
-                                <h2 class="colorlib-heading">@Model.About.Title</h2>
-                                @Html.Raw(Model.About.Content)
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        @{
-                            var aboutSkillChecker = 0;
-                        }
-                        @foreach (var aboutSkill in Model.AboutSkills)
-                        {
-                            <div class="col-md-3 animate-box" data-animate-effect="fadeIn@(aboutSkillChecker%2 == 0 ? "Left" : "Right")">
-                                <div class="services" style="border-bottom-color: @aboutSkill.Color">
-                                    <span class="icon2"><i style="color: @aboutSkill.Color" class="@aboutSkill.Icon"></i></span>
-                                    <h3>@aboutSkill.Name</h3>
+        <section class="colorlib-about" data-section="about">
+            <div class="colorlib-narrow-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+                            <div class="col-md-12">
+                                <div class="about-desc">
+                                    <span class="heading-meta">About Me</span>
+                                    <h2 class="colorlib-heading">@Model.About.Title</h2>
+                                    @Html.Raw(Model.About.Content)
                                 </div>
                             </div>
-                            aboutSkillChecker += 1;
-                        }
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-                            <div class="hire">
-                                <h2>I am happy to know you <br>that 300+ projects done sucessfully!</h2>
-                                <a href="#" class="btn-hire">Hire me</a>
+                        </div>
+                        <div class="row">
+                            @{
+                                var aboutSkillChecker = 0;
+                            }
+                            @foreach (var aboutSkill in Model.AboutSkills)
+                            {
+                                <div class="col-md-3 animate-box" data-animate-effect="fadeIn@(aboutSkillChecker%2 == 0 ? "Left" : "Right")">
+                                    <div class="services" style="border-bottom-color: @aboutSkill.Color">
+                                        <span class="icon2"><i style="color: @aboutSkill.Color" class="@aboutSkill.Icon"></i></span>
+                                        <h3>@aboutSkill.Name</h3>
+                                    </div>
+                                </div>
+                                aboutSkillChecker += 1;
+                            }
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                                <div class="hire">
+                                    <h2>I am happy to know you <br>that 300+ projects done sucessfully!</h2>
+                                    <a href="#" class="btn-hire">Hire me</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    @*<section class="colorlib-services" data-section="services">
+        @*<section class="colorlib-services" data-section="services">
             <div class="colorlib-narrow-content">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
@@ -191,306 +189,306 @@
             </div>
         </div> *@
 
-    <section class="colorlib-skills" data-section="skills">
-        <div class="colorlib-narrow-content">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-                    <span class="heading-meta">My Specialty</span>
-                    <h2 class="colorlib-heading animate-box">My Skills</h2>
+        <section class="colorlib-skills" data-section="skills">
+            <div class="colorlib-narrow-content">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+                        <span class="heading-meta">My Specialty</span>
+                        <h2 class="colorlib-heading animate-box">My Skills</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-                    @Html.Raw(Model.Page.SkillContent)
-                </div>
-                @{
-                    int evenOrOddCheck = 0;
-                }
-                @foreach (var skill in Model.Skills)
-                {
-                    <div class="col-md-6 animate-box" data-animate-effect="fadeIn@(evenOrOddCheck%2 == 0 ? "Left" : "Right")">
-                        <div class="progress-wrap">
-                            <h3>@skill.Name</h3>
-                            <div class="progress">
-                                <div class="progress-bar color-@(evenOrOddCheck)" role="progressbar" aria-valuenow="@skill.Dominance"
-                                     aria-valuemin="0" aria-valuemax="100" style="width:@(skill.Dominance)%; background: @skill.Color !important ">
-                                    <span>@skill.Dominance%</span>
+                <div class="row">
+                    <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                        @Html.Raw(Model.Page.SkillContent)
+                    </div>
+                    @{
+                        int evenOrOddCheck = 0;
+                    }
+                    @foreach (var skill in Model.Skills)
+                    {
+                        <div class="col-md-6 animate-box" data-animate-effect="fadeIn@(evenOrOddCheck%2 == 0 ? "Left" : "Right")">
+                            <div class="progress-wrap">
+                                <h3>@skill.Name</h3>
+                                <div class="progress">
+                                    <div class="progress-bar color-@(evenOrOddCheck)" role="progressbar" aria-valuenow="@skill.Dominance"
+                                         aria-valuemin="0" aria-valuemax="100" style="width:@(skill.Dominance)%; background: @skill.Color !important ">
+                                        <span>@skill.Dominance%</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    evenOrOddCheck += 1;
-                }
-            </div>
-        </div>
-    </section>
-
-
-
-    <section class="colorlib-education" data-section="education">
-        <div class="colorlib-narrow-content">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-                    <span class="heading-meta">Education</span>
-                    <h2 class="colorlib-heading animate-box">Education</h2>
+                        evenOrOddCheck += 1;
+                    }
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-                    <div class="fancy-collapse-panel">
-                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                            @{
-                                int idGenerator = 0;
-                            }
-                            @foreach (var education in Model.Educations)
-                            {
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="heading-@(idGenerator)">
-                                        <h4 class="panel-title">
-                                            <a class="@(idGenerator == 0 ? "": "collapsed")" data-toggle="collapse" data-parent="#accordion" href="#collapse-@(idGenerator)" aria-expanded="@(idGenerator == 0 ? "true": "false")" aria-controls="collapseOne">
-                                                @education.DegreeName
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapse-@(idGenerator)" class="panel-collapse collapse @(idGenerator == 0 ? "in": " ")" role="tabpanel" aria-labelledby="heading-@(idGenerator)">
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    @Html.Raw(education.Content)
+        </section>
+
+
+
+        <section class="colorlib-education" data-section="education">
+            <div class="colorlib-narrow-content">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+                        <span class="heading-meta">Education</span>
+                        <h2 class="colorlib-heading animate-box">Education</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                        <div class="fancy-collapse-panel">
+                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                @{
+                                    int idGenerator = 0;
+                                }
+                                @foreach (var education in Model.Educations)
+                                {
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="heading-@(idGenerator)">
+                                            <h4 class="panel-title">
+                                                <a class="@(idGenerator == 0 ? "": "collapsed")" data-toggle="collapse" data-parent="#accordion" href="#collapse-@(idGenerator)" aria-expanded="@(idGenerator == 0 ? "true": "false")" aria-controls="collapseOne">
+                                                    @education.DegreeName
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapse-@(idGenerator)" class="panel-collapse collapse @(idGenerator == 0 ? "in": " ")" role="tabpanel" aria-labelledby="heading-@(idGenerator)">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        @Html.Raw(education.Content)
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                idGenerator += 1;
-                            }
+                                    idGenerator += 1;
+                                }
 
 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="colorlib-experience" data-section="experience">
-        <div class="colorlib-narrow-content">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-                    <span class="heading-meta">Experience</span>
-                    <h2 class="colorlib-heading animate-box">Work Experience</h2>
+        <section class="colorlib-experience" data-section="experience">
+            <div class="colorlib-narrow-content">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+                        <span class="heading-meta">Experience</span>
+                        <h2 class="colorlib-heading animate-box">Work Experience</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="timeline-centered">
-                        @{
-                            double experienceChecker = 0;
-                        }
-                        @foreach (var experience in Model.Experiences.OrderByDescending(m => m.Duration))
-                        {
-                            var opacity = 0.8 - (experienceChecker * 0.2);
-                            <div class="custom-timeline-hover" style="opacity:@(experienceChecker==0 ? "1": "1")">
-                                <article class="timeline-entry animate-box" data-animate-effect="fadeIn@(experienceChecker == 0 ? "Left" : "Right")" !important">
-                                    <div class="timeline-entry-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="timeline-centered">
+                            @{
+                                double experienceChecker = 0;
+                            }
+                            @foreach (var experience in Model.Experiences.OrderByDescending(m => m.Duration))
+                            {
+                                var opacity = 0.8 - (experienceChecker * 0.2);
+                                <div class="custom-timeline-hover" style="opacity:@(experienceChecker==0 ? "1": "1")">
+                                    <article class="timeline-entry animate-box" data-animate-effect="fadeIn@(experienceChecker == 0 ? "Left" : "Right")" !important">
+                                        <div class="timeline-entry-inner">
 
-                                        <div class="timeline-icon" style="background: @(experience.Color)">
-                                            <i class="@experience.Icon"></i>
+                                            <div class="timeline-icon" style="background: @(experience.Color)">
+                                                <i class="@experience.Icon"></i>
+                                            </div>
+
+                                            <div class="timeline-label">
+                                                <h2><a href="#">@experience.ExperienceName</a> <span>@experience.Duration</span></h2>
+                                                @Html.Raw(experience.Description)
+                                            </div>
                                         </div>
-
-                                        <div class="timeline-label">
-                                            <h2><a href="#">@experience.ExperienceName</a> <span>@experience.Duration</span></h2>
-                                            @Html.Raw(experience.Description)
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            experienceChecker += 1;
-                        }
-
-                        <article class="timeline-entry begin animate-box" data-animate-effect="fadeInBottom">
-                            <div class="timeline-entry-inner">
-                                <div class="timeline-icon color-none">
+                                    </article>
                                 </div>
-                            </div>
-                        </article>
+                                experienceChecker += 1;
+                            }
+
+                            <article class="timeline-entry begin animate-box" data-animate-effect="fadeInBottom">
+                                <div class="timeline-entry-inner">
+                                    <div class="timeline-icon color-none">
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="colorlib-work" data-section="work">
-        <div class="colorlib-narrow-content">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-                    <span class="heading-meta">My Work</span>
-                    <h2 class="colorlib-heading animate-box">Recent Work</h2>
+        <section class="colorlib-work" data-section="work">
+            <div class="colorlib-narrow-content">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+                        <span class="heading-meta">My Work</span>
+                        <h2 class="colorlib-heading animate-box">Recent Work</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
-                <div class="col-md-12">
-                    <p class="work-menu"> <p class="work-menu">
-                        @if (Model.Categories.Any())
-                        {
-                            int count = 0;
-
-                            @foreach (var category in Model.Categories)
+                <div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+                    <div class="col-md-12">
+                        <p class="work-menu"> <p class="work-menu">
+                            @if (Model.Categories.Any())
                             {
-                                <span><a href="#" class="@(count == 0 ? "active" : " ")">@category.CategoryName</a></span>
-                                count += 1;
-                            }
-                        }
-                </div>
-            </div>
+                                int count = 0;
 
-            <div class="row">
-                @foreach (var project in Model.Projects.OrderByDescending(m => m.Id))
-                {
-                    <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-                        <div class="project" style="background-image: url(/userdata/projects/@project.PhotoPath);">
-                            <div class="desc">
-                                <div class="con">
-                                    <h3><a href="work.html">@project.Title</a></h3>
-                                    <span>@Html.Raw(project.Description)</span>
-                                    @*<p class="icon">
+                                @foreach (var category in Model.Categories)
+                                {
+                                    <span><a href="#" class="@(count == 0 ? "active" : " ")">@category.CategoryName</a></span>
+                                    count += 1;
+                                }
+                            }
+                    </div>
+                </div>
+
+                <div class="row">
+                    @foreach (var project in Model.Projects.OrderByDescending(m => m.Id))
+                    {
+                        <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+                            <div class="project" style="background-image: url(/userdata/projects/@project.PhotoPath);">
+                                <div class="desc">
+                                    <div class="con">
+                                        <h3><a href="work.html">@project.Title</a></h3>
+                                        <span>@Html.Raw(project.Description)</span>
+                                        @*<p class="icon">
                                             <span><a href="#"><i class="icon-share3"></i></a></span>
                                             <span><a href="#"><i class="icon-eye"></i> 100</a></span>
                                             <span><a href="#"><i class="icon-heart"></i> 49</a></span>
                                         </p>*@
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    }
+                </div>
+                <div class="row">
+                    <div class="col-md-12 animate-box">
+                        <p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
                     </div>
-                }
-            </div>
-            <div class="row">
-                <div class="col-md-12 animate-box">
-                    <p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="colorlib-blog" data-section="blog">
-        <div class="colorlib-narrow-content">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-                    <span class="heading-meta">Read</span>
-                    <h2 class="colorlib-heading">Recent Blog</h2>
+        <section class="colorlib-blog" data-section="blog">
+            <div class="colorlib-narrow-content">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+                        <span class="heading-meta">Read</span>
+                        <h2 class="colorlib-heading">Recent Blog</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                @foreach (var blog in Model.Blogs.OrderByDescending(b => b.CreatedAt))
-                {
-                    <div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
-                        <div class="blog-entry">
-                            <a asp-action="ViewBlog" asp-route-id="@blog.BlogId" class="blog-img"><img src="~/userdata/blogs/@blog.PhotoPath" class="img-responsive" alt="@blog.Title"></a>
-                            <div class="desc">
-                                <span>
-                                    <small>@blog.UpdatedAt </small> | <small>
-                                        @{
-                                            var blogCategories = Model.BlogCategories.Where(bc => bc.BlogId == blog.BlogId).ToList();
-                                        }
-                                        @if (blogCategories.Any())
-                                        {
-                                            foreach (var blogCategory in blogCategories)
-                                            {
-                                                var assignedCategories = blogCategory.BlogCategories.Where(b => b.BlogId == blog.BlogId).ToList();
-
-                                                foreach (var assignedCategory in assignedCategories)
-                                                {
-                                                    @: @(assignedCategory.Category.CategoryName)
-                                                }
-
+                <div class="row">
+                    @foreach (var blog in Model.Blogs.OrderByDescending(b => b.CreatedAt))
+                    {
+                        <div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+                            <div class="blog-entry">
+                                <a asp-action="ViewBlog" asp-route-id="@blog.BlogId" class="blog-img"><img src="~/userdata/blogs/@blog.PhotoPath" class="img-responsive" alt="@blog.Title"></a>
+                                <div class="desc">
+                                    <span>
+                                        <small>@blog.UpdatedAt </small> | <small>
+                                            @{
+                                                var blogCategories = Model.BlogCategories.Where(bc => bc.BlogId == blog.BlogId).ToList();
                                             }
-                                        }
+                                            @if (blogCategories.Any())
+                                            {
+                                                foreach (var blogCategory in blogCategories)
+                                                {
+                                                    var assignedCategories = blogCategory.BlogCategories.Where(b => b.BlogId == blog.BlogId).ToList();
 
-                                    </small> @*| <small> <i class="icon-bubble3"></i> 4</small>*@
-                                </span>
-                                <h3><a asp-action="ViewBlog" asp-route-id="@blog.BlogId">@blog.Title</a></h3>
-                                @Html.Raw(blog.Content)
+                                                    foreach (var assignedCategory in assignedCategories)
+                                                    {
+                                                        @: @(assignedCategory.Category.CategoryName)
+                                                    }
+
+                                                }
+                                            }
+
+                                        </small> @*| <small> <i class="icon-bubble3"></i> 4</small>*@
+                                    </span>
+                                    <h3><a asp-action="ViewBlog" asp-route-id="@blog.BlogId">@blog.Title</a></h3>
+                                    @Html.Raw(blog.Content)
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="row">
+                    <div class="col-md-12 animate-box">
+                        <p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="colorlib-contact" data-section="contact">
+            <div class="colorlib-narrow-content">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+                        <span class="heading-meta">Get in Touch</span>
+                        <h2 class="colorlib-heading">Contact</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
+                            You can feel free to ask me anything or offer a full-time or part-time job request.
+                        </div>
+                        <div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
+                            <div class="colorlib-icon">
+                                <i class="icon-globe2"></i>
+                            </div>
+                            <div class="colorlib-text">
+                                <p><a href="https://www.mertocak.work">www.mertocak.work</a></p>
+                            </div>
+                        </div>
+                        <div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
+                            <div class="colorlib-icon">
+                                <i class="icon-globe-outline"></i>
+                            </div>
+                            <div class="colorlib-text">
+                                <p><a href="mailto:@(Model.General.SiteOwnerEmail)">@Model.General.SiteOwnerEmail</a></p>
+                            </div>
+                        </div>
+
+                        <div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
+                            <div class="colorlib-icon">
+                                <i class="icon-map"></i>
+                            </div>
+                            <div class="colorlib-text">
+                                <p>@Model.General.SiteOwnerAddress</p>
                             </div>
                         </div>
                     </div>
-                }
-            </div>
-            <div class="row">
-                <div class="col-md-12 animate-box">
-                    <p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="col-md-7 col-md-push-1">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box" data-animate-effect="fadeInRight">
+                                <form asp-action="saveRequest" method="post">
+                                    <div class="form-group">
+                                        <input asp-for="ContactRequest.Name" class="form-control" placeholder="@Html.DisplayNameFor(m=>m.ContactRequest.Name)">
+                                    </div>
+                                    <div class="form-group">
+                                        <input asp-for="ContactRequest.Email" class="form-control" placeholder="@Html.DisplayNameFor(m=>m.ContactRequest.Email)">
+                                    </div>
+                                    <div class="form-group">
+                                        <input asp-for="ContactRequest.Subject" class="form-control" placeholder="@Html.DisplayNameFor(m=>m.ContactRequest.Subject)">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea style="resize:none" asp-for="ContactRequest.Message" cols="30" rows="7" class="form-control" placeholder="@Html.DisplayNameFor(m=>m.ContactRequest.Message)"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-primary btn-send-message" value="Send Message">
+                                    </div>
+                                </form>
+                            </div>
 
-    <section class="colorlib-contact" data-section="contact">
-        <div class="colorlib-narrow-content">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-                    <span class="heading-meta">Get in Touch</span>
-                    <h2 class="colorlib-heading">Contact</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
-                        You can feel free to ask me anything or offer a full-time or part-time job request.
-                    </div>
-                    <div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
-                        <div class="colorlib-icon">
-                            <i class="icon-globe2"></i>
-                        </div>
-                        <div class="colorlib-text">
-                            <p><a href="https://www.mertocak.work">www.mertocak.work</a></p>
-                        </div>
-                    </div>
-                    <div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
-                        <div class="colorlib-icon">
-                            <i class="icon-globe-outline"></i>
-                        </div>
-                        <div class="colorlib-text">
-                            <p><a href="mailto:@(Model.General.SiteOwnerEmail)">@Model.General.SiteOwnerEmail</a></p>
-                        </div>
-                    </div>
-
-                    <div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
-                        <div class="colorlib-icon">
-                            <i class="icon-map"></i>
-                        </div>
-                        <div class="colorlib-text">
-                            <p>@Model.General.SiteOwnerAddress</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-7 col-md-push-1">
-                    <div class="row">
-                        <div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box" data-animate-effect="fadeInRight">
-                            <form asp-action="saveRequest" method="post">
-                                <div class="form-group">
-                                    <input asp-for="ContactRequest.Name" class="form-control" placeholder="@Html.DisplayNameFor(m=>m.ContactRequest.Name)">
-                                </div>
-                                <div class="form-group">
-                                    <input asp-for="ContactRequest.Email" class="form-control" placeholder="@Html.DisplayNameFor(m=>m.ContactRequest.Email)">
-                                </div>
-                                <div class="form-group">
-                                    <input asp-for="ContactRequest.Subject" class="form-control" placeholder="@Html.DisplayNameFor(m=>m.ContactRequest.Subject)">
-                                </div>
-                                <div class="form-group">
-                                    <textarea style="resize:none" asp-for="ContactRequest.Message" cols="30" rows="7" class="form-control" placeholder="@Html.DisplayNameFor(m=>m.ContactRequest.Message)"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <input type="submit" class="btn btn-primary btn-send-message" value="Send Message">
-                                </div>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-</div><!-- end:colorlib-main -->
+    </div><!-- end:colorlib-main -->
 
 @section Scripts{
     @*<script>

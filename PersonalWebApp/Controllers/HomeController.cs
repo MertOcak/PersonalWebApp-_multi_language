@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using PersonalWebApp.Interfaces;
 using PersonalWebApp.Models;
+using PersonalWebApp.Resources;
 using PersonalWebApp.ViewModels;
 
 namespace PersonalWebApp.Controllers
@@ -25,9 +27,10 @@ namespace PersonalWebApp.Controllers
         private readonly IGenericRepository<ContactRequest> contactRequestRepository;
         private readonly IGenericRepository<General> generalRepository;
         private readonly IGenericRepository<Page> pageRepository;
+        private readonly IStringLocalizer<SharedResource> localizer;
         private readonly List<Blog> blogCategories;
 
-        public HomeController(AppDbContext context, DbContextOptions<AppDbContext> contextOptions, IGenericRepository<Project> projectRepository, IGenericRepository<About> aboutRepository, IGenericRepository<Category> categoryRepository, IGenericRepository<Education> educationRepository, IGenericRepository<Skill> skillRepository, IGenericRepository<Experience> experienceRepository, IGenericRepository<Blog> blogRepository, IGenericRepository<AboutSkill> aboutSkillRepository, IGenericRepository<ContactRequest> contactRequestRepository, IGenericRepository<General> generalRepository,IGenericRepository<Page> pageRepository) 
+        public HomeController(AppDbContext context, DbContextOptions<AppDbContext> contextOptions, IGenericRepository<Project> projectRepository, IGenericRepository<About> aboutRepository, IGenericRepository<Category> categoryRepository, IGenericRepository<Education> educationRepository, IGenericRepository<Skill> skillRepository, IGenericRepository<Experience> experienceRepository, IGenericRepository<Blog> blogRepository, IGenericRepository<AboutSkill> aboutSkillRepository, IGenericRepository<ContactRequest> contactRequestRepository, IGenericRepository<General> generalRepository,IGenericRepository<Page> pageRepository, IStringLocalizer<SharedResource> localizer) 
         {
             this.context = context;
             this.contextOptions = contextOptions;
@@ -42,6 +45,7 @@ namespace PersonalWebApp.Controllers
             this.contactRequestRepository = contactRequestRepository;
             this.generalRepository = generalRepository;
             this.pageRepository = pageRepository;
+            this.localizer = localizer;
             using (AppDbContext a = new AppDbContext(contextOptions))
             {
                 var blogCategories = a.Blogs.Include(blog => blog.BlogCategories).ThenInclude(blog=>blog.Category).ToList();
@@ -65,7 +69,6 @@ namespace PersonalWebApp.Controllers
                 Page = pageRepository.GetById(Guid.Parse("76ec251b-b7b8-4be6-84df-efb922306ba8"))
                 //ContactRequest = new ContactRequest()
             };
-
             //return RedirectToAction("index", "project",new { area = "panel" });
             return View(onePage);
         }

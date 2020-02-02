@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using PersonalWebApp.Interfaces;
 using PersonalWebApp.Models;
+using PersonalWebApp.Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;

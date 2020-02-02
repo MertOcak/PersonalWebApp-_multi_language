@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE HTML>
-<html>
+<html lang="@System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,14 +50,14 @@
                     <div id="navbar" class="collapse">
                         <ul>
                             @*<li class="active"><a href="#" data-nav-section="home">Home</a></li>*@
-                            <li><a href="#" data-nav-section="about">About</a></li>
+                            <li><a href="#" data-nav-section="about">@Localizer["About"]</a></li>
                             @*<li><a href="#" data-nav-section="services">Services</a></li>*@
-                            <li><a href="#" data-nav-section="skills">Skills</a></li>
-                            <li><a href="#" data-nav-section="education">Education</a></li>
-                            <li><a href="#" data-nav-section="experience">Experience</a></li>
-                            <li><a href="#" data-nav-section="work">Work</a></li>
-                            <li><a href="#" data-nav-section="blog">Blog</a></li>
-                            <li><a href="#" data-nav-section="contact">Contact</a></li>
+                            <li><a href="#" data-nav-section="skills">@Localizer["Skills"]</a></li>
+                            <li><a href="#" data-nav-section="education">@Localizer["Education"]</a></li>
+                            <li><a href="#" data-nav-section="experience">@Localizer["Experience"]</a></li>
+                            <li><a href="#" data-nav-section="work">@Localizer["Work"]</a></li>
+                            <li><a href="#" data-nav-section="blog">@Localizer["Blog"]</a></li>
+                            <li><a href="#" data-nav-section="contact">@Localizer["Contact"]</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -67,8 +67,8 @@
                         @*<a style="cursor:pointer; display:block" onclick="changeCSS('css/light.css', 14);">Light Mode</a>
                             <a style="cursor:pointer; display:block" onclick="changeCSS('css/dark.css', 14);">Dark Mode</a>*@
                         <small>
-                            Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> <br /> All rights reserved
+                            @Localizer["Copyright"] &copy;
+                            <script>document.write(new Date().getFullYear());</script> <br /> @Localizer["All rights reserved"]
                         </small>
                     </p>
                     <ul>
