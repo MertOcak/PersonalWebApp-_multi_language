@@ -1,0 +1,106 @@
+﻿@model GeneralEditViewModel
+
+@{
+    ViewBag.Title = "General Edit";
+}
+
+<div class="m-content">
+    <div class="row">
+        <div class="col-md-12">
+            <!--begin::Portlet-->
+            <div class="m-portlet mb-0">
+                <!--begin::Form-->
+                <form enctype="multipart/form-data" asp-action="index" method="post" class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed">
+                    <div class="m-portlet__foot m-portlet__foot--top m-portlet__foot--fit">
+                        <div class="m-form__actions m-form__actions--solid">
+                            <div class="row align-items-center">
+                                <div class="col m--align-left m--valign-middle">
+                                    <h3 class="m-subheader__title ">@ViewBag.Title</h3>
+                                </div>
+                                <div class="col m--align-right">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                    <a asp-action="index" class="btn btn-secondary">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Form-->
+                    <!--begin::Form-->
+                    <input type="hidden" asp-for="@Model.Generals.Id" />
+                    <div class="m-portlet__body">
+                        <div class="form-group m-form__group row">
+                            <div class="col-lg-4">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label>Site Logo</label>
+                                        @{
+                                            string siteLogoPath = "/userdata/projects/no-image.png";
+                                        }
+                                        @if (Model.Generals.SiteLogoPath != null)
+                                        {
+                                            siteLogoPath = "/userdata/general/" + Model.Generals.SiteLogoPath;
+                                        }
+                                        <img src="@siteLogoPath" class="img-fluid" />
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div style="margin-top:27px;display:block" class="custom-file">
+                                            <input asp-for="Images" class="custom-file-input">
+                                            <label class="custom-file-label" for="customFile" asp-for="Images">Upload</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group m-form__group row">
+                            <div class="col-lg-4">
+                                <label asp-for="@Model.Generals.SiteOwnerName"></label>
+                                <input asp-for="@Model.Generals.SiteOwnerName" class="form-control m-input">
+                                <span class="m-form__help text-danger" asp-validation-for="@Model.Generals.SiteOwnerName"></span>
+                            </div>
+                            <div class="col-lg-4">
+                                <label asp-for="@Model.Generals.SiteOwnerJob"></label>
+                                <input asp-for="@Model.Generals.SiteOwnerJob" class="form-control m-input">
+                                <span class="m-form__help text-danger" asp-validation-for="@Model.Generals.SiteOwnerJob"></span>
+                            </div>
+                            <div class="col-lg-4">
+                                <label asp-for="@Model.Generals.SiteOwnerCountry"></label>
+                                <input asp-for="@Model.Generals.SiteOwnerCountry" class="form-control m-input">
+                                <span class="m-form__help text-danger" asp-validation-for="@Model.Generals.SiteOwnerCountry"></span>
+                            </div>
+                        </div>
+                        <div class="form-group m-form__group row">
+                            <div class="col-lg-4">
+                                <label asp-for="@Model.Generals.SiteOwnerEmail"></label>
+                                <input asp-for="@Model.Generals.SiteOwnerEmail" class="form-control m-input">
+                                <span class="m-form__help text-danger" asp-validation-for="@Model.Generals.SiteOwnerEmail"></span>
+                            </div>
+                            <div class="col-lg-4">
+                                <label asp-for="@Model.Generals.SiteOwnerAddress"></label>
+                                <input asp-for="@Model.Generals.SiteOwnerAddress" class="form-control m-input">
+                                <span class="m-form__help text-danger" asp-validation-for="@Model.Generals.SiteOwnerAddress"></span>
+                            </div>
+                            <div class="col-lg-4">
+                                <label asp-for="@Model.Generals.SiteColor" for="example-color-input" class="col-2">Color</label>
+                                <input asp-for="@Model.Generals.SiteColor" class="form-control m-input" type="color">
+                                <span class="m-form__help text-danger" asp-validation-for="@Model.Generals.SiteOwnerAddress"></span>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <!--end::Form-->
+            </div>
+            <!--end::Portlet-->
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @if (TempData["Success"] != null)
+    {
+        <script>
+                toastr.success("@TempData["Success"]");
+        </script>
+    }
+}

@@ -1,0 +1,74 @@
+﻿@model Experience
+
+@{
+    ViewBag.Title = "Education Edit";
+}
+
+<div class="m-content">
+    <div class="row">
+        <div class="col-md-12">
+            <!--begin::Portlet-->
+            <div class="m-portlet">
+                <!--begin::Form-->
+                <form class="m-form" asp-action="edit" method="post">
+                    <input type="hidden" asp-for="@Model.Id" />
+                    <div class="m-portlet__foot m-portlet__foot--top m-portlet__foot--fit">
+                        <div class="m-form__actions m-form__actions--solid">
+                            <div class="row align-items-center">
+                                <div class="col m--align-left m--valign-middle">
+                                    <h3 class="m-subheader__title ">@ViewBag.Title</h3>
+                                </div>
+                                <div class="col m--align-right">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                    <a asp-action="index" class="btn btn-secondary">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__body">
+                        <div class="form-group m-form__group">
+                            <label asp-for="@Model.ExperienceName"></label>
+                            <input asp-for="@Model.ExperienceName" class="form-control m-input">
+                            <span class="m-form__help text-danger" asp-validation-for="@Model.ExperienceName"></span>
+                        </div>
+
+                        <div class="form-group m-form__group">
+                            <label asp-for="@Model.Description"></label>
+                            <textarea asp-for="@Model.Description" rows="5" class="form-control m-input">@Model.Description</textarea>
+                            <span class="m-form__help text-danger" asp-validation-for="@Model.Description"></span>
+                        </div>
+
+                        <div class="form-group m-form__group">
+                            <label asp-for="@Model.Duration"></label>
+                            <input asp-for="@Model.Duration" class="form-control m-input">
+                            <span class="m-form__help text-danger" asp-validation-for="@Model.Duration"></span>
+                        </div>
+
+                        <div class="form-group m-form__group">
+                            <label asp-for="@Model.Color" for="example-color-input" class="col-2 col-form-label">Color</label>
+                            <input asp-for="@Model.Color" class="form-control m-input" type="color">
+                        </div>
+
+                        <div class="form-group m-form__group">
+                            <label asp-for="@Model.Icon"></label>
+                            <input asp-for="@Model.Icon" class="form-control m-input">
+                            <span class="m-form__help text-danger" asp-validation-for="@Model.Icon"></span>
+                        </div>
+
+                    </div>
+                </form>
+
+                <!--end::Form-->
+            </div>
+
+            <!--end::Portlet-->
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        CKEDITOR.replace('Description');
+    </script>
+}

@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Skill>
+
+@{
+    int styleChecker = 0;
+}
+    <style>
+    @foreach (var skill in Model)
+    {
+
+        @:.color-@(styleChecker):after {
+        @:background: @(skill.Color) !important;
+        @:}
+        @:.color-@(styleChecker) span {
+        @:color: @(skill.Color) !important;
+        @:}
+    styleChecker += 1;
+    }
+    </style>

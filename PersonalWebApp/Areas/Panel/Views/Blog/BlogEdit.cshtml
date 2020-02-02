@@ -1,0 +1,122 @@
+﻿@model BlogEditViewModel
+
+@{
+    ViewBag.Title = "Blog Edit";
+}
+
+<div class="m-content">
+    <div class="row">
+        <div class="col-md-12">
+            <!--begin::Portlet-->
+            <div class="m-portlet">
+                <!--begin::Form-->
+                <form enctype="multipart/form-data" class="m-form" asp-action="update" method="post">
+                    <input type="hidden" asp-for="@Model.Blog.BlogId" />
+                    <div class="m-portlet__foot m-portlet__foot--top m-portlet__foot--fit">
+                        <div class="m-form__actions m-form__actions--solid">
+                            <div class="row align-items-center">
+                                <div class="col m--align-left m--valign-middle">
+                                    <h3 class="m-subheader__title ">@ViewBag.Title</h3>
+                                </div>
+                                <div class="col m--align-right">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                    <a asp-action="index" class="btn btn-secondary">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__body">
+                        <div class="form-group m-form__group">
+                            <label asp-for="Blog.Title"></label>
+                            <input asp-for="Blog.Title" class="form-control m-input">
+                            <span class="m-form__help text-danger" asp-validation-for="Blog.Title"></span>
+                        </div>
+                        @if (Model.ImagePath.Any())
+                        {
+                            <div class="d-block">
+                                <label asp-for="Images" class="d-block"></label>
+
+                                @foreach (var image in Model.ImagePath)
+                                {
+
+                                <img style="max-height:100px" src="~/userdata/blogs/@image" class="img-fluid" />
+                                }
+
+                            </div>
+                        }
+                        <div class="form-group m-form__group">
+                            <label asp-for="Images"></label>
+                            <div></div>
+                            <div class="custom-file">
+                                <input multiple asp-for="Images" class="custom-file-input">
+                                <label class="custom-file-label" for="customFile" asp-for="Images">Select Images</label>
+                            </div>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label asp-for="Blog.Content"></label>
+                            <textarea asp-for="Blog.Content" rows="5" class="form-control m-input">@Model.Blog.Content</textarea>
+                            <span class="m-form__help text-danger" asp-validation-for="Blog.Content"></span>
+                        </div>
+                        <div class="m-form__group form-group">
+                            <label>Categories</label>
+                            <div class="m-checkbox-list">
+
+                                @if (Model.Categories.Any())
+                                {
+                                    @foreach (var category in Model.Categories)
+                                    {
+                                        <label class="m-checkbox">
+                                            <input @(category.IsChecked == true ? "checked" : "") name="categoryList[]" type="checkbox" value="@category.Id">@category.CategoryName
+                                            <span></span>
+                                        </label>
+                                    }
+                                }
+                                else
+                                {
+                                    @: There is no category found
+                                    <button class="btn btn-primary d-block mt-2" asp-action="create" asp-controller="category">Create New Category</button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    @*<div class="m-portlet__foot m-portlet__foot--fit">
+                            <div class="m-form__actions m-form__actions--solid m-form__actions--right">
+                                <button type="reset" class="btn btn-primary">Submit</button>
+                                <button type="reset" class="btn btn-secondary">Cancel</button>
+                            </div>
+                        </div>*@
+                </form>
+
+                <!--end::Form-->
+            </div>
+
+            <!--end::Portlet-->
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        CKEDITOR.replace('Blog_@Html.DisplayNameFor(m=>m.Blog.Content)')
+         $(document).ready(function () {
+                //$('.custom-file-input').on("change",
+                //    function () {
+                //        var fileName = $(this).val().split("\\").pop();
+                //        $(this).next('.custom-file-label').html(fileName);
+                //    });
+                $('.custom-file-input').on("change",
+                    function () {
+                        //console.log($(this));
+                        var fileLabel = $(this).next(".custom-file-label");
+                        var files = $(this)[0].files;
+                        if (files.length > 1) {
+                            fileLabel.html(files.length + ' files selected');
+                        } else if (files.length == 1) {
+                            fileLabel.html(files[0].name);
+                        }
+                    });
+            })
+    </script>
+}

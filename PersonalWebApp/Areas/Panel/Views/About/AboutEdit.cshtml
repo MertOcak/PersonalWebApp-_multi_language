@@ -1,0 +1,61 @@
+﻿@model About
+
+@{
+    ViewBag.Title = "About Page";
+}
+
+<div class="m-content">
+    <div class="row">
+        <div class="col-md-12">
+            <!--begin::Portlet-->
+            <div class="m-portlet">
+
+                <!--begin::Form-->
+                <form class="m-form" asp-action="edit" method="post">
+                    <input type="hidden" asp-for="@Model.Id" />
+                    <div class="m-portlet__foot m-portlet__foot--top m-portlet__foot--fit">
+                        <div class="m-form__actions m-form__actions--solid">
+                            <div class="row align-items-center">
+                                <div class="col m--align-left m--valign-middle">
+                                    <h3 class="m-subheader__title ">@ViewBag.Title</h3>
+                                </div>
+                                <div class="col m--align-right">
+                                    <button type="submit" class="btn btn-danger">Save Changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__body">
+                        <div class="form-group m-form__group">
+                            <label asp-for="@Model.Title"></label>
+                            <input asp-for="@Model.Title" class="form-control m-input">
+                            <span class="m-form__help text-danger" asp-validation-for="@Model.Title"></span>
+                        </div>
+                        <div class="form-group m-form__group" style="min-height: 365px; display:block">
+                            <label asp-for="@Model.Content"></label>
+                            <textarea style="display:none" asp-for="@Model.Content" rows="5" class="form-control m-input">@Model.Content</textarea>
+                            <span class="m-form__help text-danger" asp-validation-for="@Model.Content"></span>
+                        </div>
+                    </div>
+                </form>
+
+                <!--end::Form-->
+            </div>
+
+            <!--end::Portlet-->
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @if (TempData["Success"] != null)
+    {
+        <script>
+            toastr.success("@TempData["Success"]");
+        </script>
+    }
+    <script>
+        CKEDITOR.replace('Content');
+    </script>
+}

@@ -1,0 +1,83 @@
+﻿@model Skill
+
+@{
+    ViewBag.Title = "Skill Create";
+}
+
+<div class="m-content">
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+            <!--begin::Portlet-->
+            <div class="m-portlet">
+                @*<div class="m-portlet__head">
+                        <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                                <span class="m-portlet__head-icon m--hide">
+                                    <i class="la la-gear"></i>
+                                </span>
+                                <h3 class="m-portlet__head-text">
+                                    Top &amp; Bottom Actions Bars
+                                </h3>
+                            </div>
+                        </div>
+                    </div>*@
+
+                <!--begin::Form-->
+                <form class="m-form" asp-action="create" method="post">
+                    <div class="m-portlet__foot m-portlet__foot--top m-portlet__foot--fit">
+                        <div class="m-form__actions m-form__actions--solid">
+                            <div class="row align-items-center">
+                                <div class="col m--align-left m--valign-middle">
+                                    <h3 class="m-subheader__title ">@ViewBag.Title</h3>
+                                </div>
+                                <div class="col m--align-right">
+                                    <button type="submit" class="btn btn-primary">Create</button>
+                                    <a asp-action="index" class="btn btn-secondary">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__body">
+                        <div class="form-group m-form__group">
+                            <label asp-for="@Model.Name"></label>
+                            <input asp-for="@Model.Name" class="form-control m-input">
+                            <span class="m-form__help text-danger" asp-validation-for="@Model.Name"></span>
+                        </div>
+
+                        <div class="form-group m-form__group">
+                            <label asp-for="@Model.Color" for="example-color-input" class="col-2 col-form-label">Color</label>
+                            <input asp-for="@Model.Color" class="form-control m-input" type="color">
+                        </div>
+
+                        <div class="form-group m-form__group">
+                            <label asp-for="@Model.Dominance" class="col-form-label"></label>
+                            <div class="m-ion-range-slider">
+                                <span class="irs js-irs-0 d-none"><span class="irs"><span class="irs-line" tabindex="0"><span class="irs-line-left"></span><span class="irs-line-mid"></span><span class="irs-line-right"></span></span><span class="irs-min" style="visibility: hidden;">10</span><span class="irs-max" style="visibility: visible;">100</span><span class="irs-from" style="visibility: hidden;">0</span><span class="irs-to" style="visibility: hidden;">0</span><span class="irs-single" style="left: 1.1254%;">10</span></span><span class="irs-grid"></span><span class="irs-bar" style="left: 0.895213%; width: 1.09122%;"></span><span class="irs-bar-edge"></span><span class="irs-shadow shadow-single" style="display: none;"></span><span class="irs-slider single" style="left: 1.09122%;"></span></span><input type="hidden" id="Dominance" name="Dominance" readonly="" value="10">
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </form>
+
+                <!--end::Form-->
+            </div>
+
+            <!--end::Portlet-->
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        jQuery(document).ready(function () {
+            $("#Dominance").ionRangeSlider()
+        });
+    </script>
+}
