@@ -9,6 +9,10 @@
     opacity: 1 !important;
 }
 
+.input-validation-error {
+    border: 1px solid #77302f !important;
+}
+
 /* =======================================================
 *
 * 	Template Style 

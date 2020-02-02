@@ -120,6 +120,9 @@
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="About me" xml:space="preserve">
+    <value>About me</value>
+  </data>
   <data name="All rights reserved" xml:space="preserve">
     <value>All rights reserved</value>
   </data>
@@ -129,19 +132,79 @@
   <data name="Contact" xml:space="preserve">
     <value>Contact</value>
   </data>
+  <data name="ContactText" xml:space="preserve">
+    <value>You can feel free to ask me anything or offer a full-time or part-time job request.</value>
+  </data>
   <data name="Copyright" xml:space="preserve">
     <value>Copyright</value>
   </data>
   <data name="Education" xml:space="preserve">
     <value>Education</value>
   </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
   <data name="Experience" xml:space="preserve">
     <value>Experience</value>
+  </data>
+  <data name="Get in touch" xml:space="preserve">
+    <value>Get in touch</value>
+  </data>
+  <data name="Hire me" xml:space="preserve">
+    <value>Hire me</value>
+  </data>
+  <data name="Load More" xml:space="preserve">
+    <value>Load More</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="My Skills" xml:space="preserve">
+    <value>My Skills</value>
+  </data>
+  <data name="My specialty" xml:space="preserve">
+    <value>My specialty</value>
+  </data>
+  <data name="My work" xml:space="preserve">
+    <value>My work</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Please check your email" xml:space="preserve">
+    <value>Please check your email</value>
+  </data>
+  <data name="Please check your message" xml:space="preserve">
+    <value>Please check your message</value>
+  </data>
+  <data name="Please check your name" xml:space="preserve">
+    <value>Please check your name</value>
+  </data>
+  <data name="Please check your subject" xml:space="preserve">
+    <value>Please check your subject</value>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>Read</value>
+  </data>
+  <data name="Recent Blog" xml:space="preserve">
+    <value>Recent Blog</value>
+  </data>
+  <data name="Recent work" xml:space="preserve">
+    <value>Recent work</value>
+  </data>
+  <data name="Send Message" xml:space="preserve">
+    <value>Send Message</value>
   </data>
   <data name="Skills" xml:space="preserve">
     <value>Skills</value>
   </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
   <data name="Work" xml:space="preserve">
     <value>Work</value>
+  </data>
+  <data name="Work experience" xml:space="preserve">
+    <value>Work experience</value>
   </data>
 </root>

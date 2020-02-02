@@ -120,6 +120,9 @@
   <data name="About" xml:space="preserve">
     <value>Hakkında</value>
   </data>
+  <data name="About me" xml:space="preserve">
+    <value>Hakkımda</value>
+  </data>
   <data name="All rights reserved" xml:space="preserve">
     <value>Her Hakkı Saklıdır</value>
   </data>
@@ -129,19 +132,79 @@
   <data name="Contact" xml:space="preserve">
     <value>İletişim</value>
   </data>
+  <data name="ContactText" xml:space="preserve">
+    <value>Bana herhangi bir şey sormakta veya tam zamanlı veya yarı zamanlı iş talebi teklif etmekten çekinmeyin.</value>
+  </data>
   <data name="Copyright" xml:space="preserve">
     <value>Telif Hakkı</value>
   </data>
   <data name="Education" xml:space="preserve">
     <value>Eğitim</value>
   </data>
+  <data name="Email" xml:space="preserve">
+    <value>Eposta</value>
+  </data>
   <data name="Experience" xml:space="preserve">
     <value>Deneyim</value>
+  </data>
+  <data name="Get in touch" xml:space="preserve">
+    <value>Temas Kurun</value>
+  </data>
+  <data name="Hire me" xml:space="preserve">
+    <value>Beni işe al</value>
+  </data>
+  <data name="Load More" xml:space="preserve">
+    <value>Daha fazla</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Mesaj</value>
+  </data>
+  <data name="My Skills" xml:space="preserve">
+    <value>Uzmanlıklarım</value>
+  </data>
+  <data name="My specialty" xml:space="preserve">
+    <value>Yeteneklerim</value>
+  </data>
+  <data name="My work" xml:space="preserve">
+    <value>Çalışmalarım</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ad</value>
+  </data>
+  <data name="Please check your email" xml:space="preserve">
+    <value>Lütfen eposta alanını kontrol edin</value>
+  </data>
+  <data name="Please check your message" xml:space="preserve">
+    <value>Lütfen mesaj alanını kontrol edin</value>
+  </data>
+  <data name="Please check your name" xml:space="preserve">
+    <value>Lütfen ad alanını kontrol edin</value>
+  </data>
+  <data name="Please check your subject" xml:space="preserve">
+    <value>Lütfen konu alanını kontrol edin</value>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>Oku</value>
+  </data>
+  <data name="Recent Blog" xml:space="preserve">
+    <value>Son Yazılar</value>
+  </data>
+  <data name="Recent work" xml:space="preserve">
+    <value>Son Çalışmalarım</value>
+  </data>
+  <data name="Send Message" xml:space="preserve">
+    <value>Mesaj Gönder</value>
   </data>
   <data name="Skills" xml:space="preserve">
     <value>Yetenekler</value>
   </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Konu</value>
+  </data>
   <data name="Work" xml:space="preserve">
     <value>Çalışmalar</value>
+  </data>
+  <data name="Work experience" xml:space="preserve">
+    <value>Çalışma Deneyimi</value>
   </data>
 </root>

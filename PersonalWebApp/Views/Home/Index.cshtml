@@ -50,7 +50,7 @@
                         <div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
                             <div class="col-md-12">
                                 <div class="about-desc">
-                                    <span class="heading-meta">About Me</span>
+                                    <span class="heading-meta">@Localizer["About me"]</span>
                                     <h2 class="colorlib-heading">@Model.About.Title</h2>
                                     @Html.Raw(Model.About.Content)
                                 </div>
@@ -62,7 +62,7 @@
                             }
                             @foreach (var aboutSkill in Model.AboutSkills)
                             {
-                                <div class="col-md-3 animate-box" data-animate-effect="fadeIn@(aboutSkillChecker%2 == 0 ? "Left" : "Right")">
+                                <div class="col-md-3 animate-box" data-animate-effect="fadeIn@(aboutSkillChecker % 2 == 0 ? "Left" : "Right")">
                                     <div class="services" style="border-bottom-color: @aboutSkill.Color">
                                         <span class="icon2"><i style="color: @aboutSkill.Color" class="@aboutSkill.Icon"></i></span>
                                         <h3>@aboutSkill.Name</h3>
@@ -75,7 +75,7 @@
                             <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
                                 <div class="hire">
                                     <h2>I am happy to know you <br>that 300+ projects done sucessfully!</h2>
-                                    <a href="#" class="btn-hire">Hire me</a>
+                                    <a href="#" class="btn-hire">@Localizer["Hire me"]</a>
                                 </div>
                             </div>
                         </div>
@@ -193,8 +193,8 @@
             <div class="colorlib-narrow-content">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-                        <span class="heading-meta">My Specialty</span>
-                        <h2 class="colorlib-heading animate-box">My Skills</h2>
+                        <span class="heading-meta">@Localizer["My specialty"]</span>
+                        <h2 class="colorlib-heading animate-box">@Localizer["My Skills"]</h2>
                     </div>
                 </div>
                 <div class="row">
@@ -206,7 +206,7 @@
                     }
                     @foreach (var skill in Model.Skills)
                     {
-                        <div class="col-md-6 animate-box" data-animate-effect="fadeIn@(evenOrOddCheck%2 == 0 ? "Left" : "Right")">
+                        <div class="col-md-6 animate-box" data-animate-effect="fadeIn@(evenOrOddCheck % 2 == 0 ? "Left" : "Right")">
                             <div class="progress-wrap">
                                 <h3>@skill.Name</h3>
                                 <div class="progress">
@@ -229,8 +229,8 @@
             <div class="colorlib-narrow-content">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-                        <span class="heading-meta">Education</span>
-                        <h2 class="colorlib-heading animate-box">Education</h2>
+                        <span class="heading-meta">@Localizer["Education"]</span>
+                        <h2 class="colorlib-heading animate-box">@Localizer["Education"]</h2>
                     </div>
                 </div>
                 <div class="row">
@@ -245,12 +245,12 @@
                                     <div class="panel panel-default">
                                         <div class="panel-heading" role="tab" id="heading-@(idGenerator)">
                                             <h4 class="panel-title">
-                                                <a class="@(idGenerator == 0 ? "": "collapsed")" data-toggle="collapse" data-parent="#accordion" href="#collapse-@(idGenerator)" aria-expanded="@(idGenerator == 0 ? "true": "false")" aria-controls="collapseOne">
+                                                <a class="@(idGenerator == 0 ? "" : "collapsed")" data-toggle="collapse" data-parent="#accordion" href="#collapse-@(idGenerator)" aria-expanded="@(idGenerator == 0 ? "true" : "false")" aria-controls="collapseOne">
                                                     @education.DegreeName
                                                 </a>
                                             </h4>
                                         </div>
-                                        <div id="collapse-@(idGenerator)" class="panel-collapse collapse @(idGenerator == 0 ? "in": " ")" role="tabpanel" aria-labelledby="heading-@(idGenerator)">
+                                        <div id="collapse-@(idGenerator)" class="panel-collapse collapse @(idGenerator == 0 ? "in" : " ")" role="tabpanel" aria-labelledby="heading-@(idGenerator)">
                                             <div class="panel-body">
                                                 <div class="row">
                                                     <div class="col-md-12">
@@ -275,8 +275,8 @@
             <div class="colorlib-narrow-content">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-                        <span class="heading-meta">Experience</span>
-                        <h2 class="colorlib-heading animate-box">Work Experience</h2>
+                        <span class="heading-meta">@Localizer["Experience"]</span>
+                        <h2 class="colorlib-heading animate-box">@Localizer["Work experience"]</h2>
                     </div>
                 </div>
                 <div class="row">
@@ -288,7 +288,7 @@
                             @foreach (var experience in Model.Experiences.OrderByDescending(m => m.Duration))
                             {
                                 var opacity = 0.8 - (experienceChecker * 0.2);
-                                <div class="custom-timeline-hover" style="opacity:@(experienceChecker==0 ? "1": "1")">
+                                <div class="custom-timeline-hover" style="opacity:@(experienceChecker == 0 ? "1" : "1")">
                                     <article class="timeline-entry animate-box" data-animate-effect="fadeIn@(experienceChecker == 0 ? "Left" : "Right")" !important">
                                         <div class="timeline-entry-inner">
 
@@ -322,8 +322,8 @@
             <div class="colorlib-narrow-content">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-                        <span class="heading-meta">My Work</span>
-                        <h2 class="colorlib-heading animate-box">Recent Work</h2>
+                        <span class="heading-meta">@Localizer["My work"]</span>
+                        <h2 class="colorlib-heading animate-box">@Localizer["Recent work"]</h2>
                     </div>
                 </div>
                 <div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
@@ -364,7 +364,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 animate-box">
-                        <p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
+                        <p><a href="#" class="btn btn-primary btn-lg btn-load-more">@Localizer["Load more"] <i class="icon-reload"></i></a></p>
                     </div>
                 </div>
             </div>
@@ -374,8 +374,8 @@
             <div class="colorlib-narrow-content">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-                        <span class="heading-meta">Read</span>
-                        <h2 class="colorlib-heading">Recent Blog</h2>
+                        <span class="heading-meta">@Localizer["Read"]</span>
+                        <h2 class="colorlib-heading">@Localizer["Recent Blog"]</h2>
                     </div>
                 </div>
                 <div class="row">
@@ -411,11 +411,11 @@
                                 </div>
                             </div>
                         </div>
-                    }
+                                                }
                 </div>
                 <div class="row">
                     <div class="col-md-12 animate-box">
-                        <p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
+                        <p><a href="#" class="btn btn-primary btn-lg btn-load-more">@Localizer["Load more"] <i class="icon-reload"></i></a></p>
                     </div>
                 </div>
             </div>
@@ -425,14 +425,14 @@
             <div class="colorlib-narrow-content">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-                        <span class="heading-meta">Get in Touch</span>
-                        <h2 class="colorlib-heading">Contact</h2>
+                        <span class="heading-meta">@Localizer["Get in touch"]</span>
+                        <h2 class="colorlib-heading">@Localizer["Contact"]</h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-5">
                         <div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
-                            You can feel free to ask me anything or offer a full-time or part-time job request.
+                            @Localizer["ContactText"]
                         </div>
                         <div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
                             <div class="colorlib-icon">
@@ -466,18 +466,22 @@
                                 <form asp-action="saveRequest" method="post">
                                     <div class="form-group">
                                         <input asp-for="ContactRequest.Name" class="form-control" placeholder="@Html.DisplayNameFor(m=>m.ContactRequest.Name)">
+                                        <span class="text-danger" asp-validation-for="ContactRequest.Name"></span>
                                     </div>
                                     <div class="form-group">
                                         <input asp-for="ContactRequest.Email" class="form-control" placeholder="@Html.DisplayNameFor(m=>m.ContactRequest.Email)">
+                                        <span class="text-danger" asp-validation-for="ContactRequest.Email"></span>
                                     </div>
                                     <div class="form-group">
                                         <input asp-for="ContactRequest.Subject" class="form-control" placeholder="@Html.DisplayNameFor(m=>m.ContactRequest.Subject)">
+                                        <span class="text-danger" asp-validation-for="ContactRequest.Subject"></span>
                                     </div>
                                     <div class="form-group">
                                         <textarea style="resize:none" asp-for="ContactRequest.Message" cols="30" rows="7" class="form-control" placeholder="@Html.DisplayNameFor(m=>m.ContactRequest.Message)"></textarea>
+                                        <span class="text-danger" asp-validation-for="ContactRequest.Message"></span>
                                     </div>
                                     <div class="form-group">
-                                        <input type="submit" class="btn btn-primary btn-send-message" value="Send Message">
+                                        <input type="submit" class="btn btn-primary btn-send-message" value="@Localizer["Send Message"]">
                                     </div>
                                 </form>
                             </div>

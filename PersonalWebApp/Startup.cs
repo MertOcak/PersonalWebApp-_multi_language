@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Localization.Routing;
+using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using PersonalWebApp.Interfaces;
 using PersonalWebApp.Models;
@@ -34,21 +39,6 @@ namespace PersonalWebApp
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<RequestLocalizationOptions>(
-      opts =>
-      {
-          var supportedCultures = new List<CultureInfo>
-          {
-                new CultureInfo("en"),
-                new CultureInfo("tr"),
-          };
-
-          opts.DefaultRequestCulture = new RequestCulture("en");
-          // Formatting numbers, dates, etc.
-          opts.SupportedCultures = supportedCultures;
-          // UI strings that we have localized.
-          opts.SupportedUICultures = supportedCultures;
-      });
             services.AddDbContextPool<AppDbContext>(options =>
             {
                 options.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
@@ -63,16 +53,16 @@ namespace PersonalWebApp
                 options.Lockout.MaxFailedAccessAttempts = 5;
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
             }).AddEntityFrameworkStores<AppDbContext>();
-            services.AddMvc().AddDataAnnotationsLocalization(o =>
-            {
-                o.DataAnnotationLocalizerProvider = (type, factory) =>
-                {
-                    return factory.Create(typeof(SharedResource));
-                };
-            });
             services.AddLocalization(o =>
             {
                 o.ResourcesPath = "Resources";
+            });
+            services.AddMvc().AddDataAnnotationsLocalization(o => {
+                var type = typeof(SharedResource);
+                var assemblyName = new AssemblyName(type.GetTypeInfo().Assembly.FullName);
+                var factory = services.BuildServiceProvider().GetService<IStringLocalizerFactory>();
+                var localizer = factory.Create("SharedResource", assemblyName.Name);
+                o.DataAnnotationLocalizerProvider = (t, f) => localizer;
             });
             services.AddTransient<IGenericRepository<Project>, GenericRepository<Project>>();
             services.AddTransient<IGenericRepository<Category>, GenericRepository<Category>>();
@@ -119,17 +109,50 @@ namespace PersonalWebApp
             var options = app.ApplicationServices
               .GetService<IOptions<RequestLocalizationOptions>>();
             app.UseRequestLocalization(options.Value);
-            app.UseMvc(routes =>
+            IList<CultureInfo> supportedCultures = new List<CultureInfo>
+{
+    new CultureInfo("tr"),
+    new CultureInfo("en"),
+};
+            var localizationOptions = new RequestLocalizationOptions
             {
-                routes.MapRoute(
-                    name: "areas",
-                    template: "{area:exists}/{controller=Panel}/{action=Index}/{id?}"
-                );
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}"
-                );
+                DefaultRequestCulture = new RequestCulture("en-US"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            };
+            var requestProvider = new RouteDataRequestCultureProvider();
+            localizationOptions.RequestCultureProviders.Insert(0, requestProvider);
+
+            app.UseRouter(routes =>
+            {
+                routes.MapMiddlewareRoute("{culture=en-US}/{*mvcRoute}", subApp =>
+                {
+                    subApp.UseRequestLocalization(localizationOptions);
+
+                    subApp.UseMvc(mvcRoutes =>
+                    {
+                        mvcRoutes.MapRoute(
+                         name: "areas",
+                         template: "{area:exists}/{controller=Panel}/{action=Index}/{id?}");
+
+                        mvcRoutes.MapRoute(
+                            name: "default",
+                            template: "{culture=en-US}/{controller=Home}/{action=Index}/{id?}");
+                    });
+                });
             });
+            app.UseMvc();
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute(
+            //        name: "areas",
+            //        template: "{area:exists}/{controller=Panel}/{action=Index}/{id?}"
+            //    );
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "{controller=Home}/{action=Index}/{id?}"
+            //    );
+            //});
         }
     }
 }
